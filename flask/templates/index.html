@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnemiaSense</title>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: "Nunito Sans", serif;
+}
+
+
+:root{/*root is used to defines global variable*/
+    --bg-color:#191f36;   /*set background color*/
+    --snd-bg-color:#262B40; /* also use to set background color of particular section or element*/
+    --text-color:#fff; /* use to set text color*/
+    --main-color:rgb(248, 224, 128);/* use to set color of butthon*/
+}
+
+html {
+    /* Setting the base font size to 10px (62.5% of the default 16px).
+       This makes it easier to calculate rem values.
+       Example: 1rem = 10px, 1.6rem = 16px, 2rem = 20px */
+    font-size: 62.5%; 
+
+    /* Hides any horizontal overflow to prevent unwanted side-scrolling */
+    overflow-x: hidden;
+}
+
+
+body{
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+section{
+    min-height: 100vh;
+    padding: 10px 9% 2rem;
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 9%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background-color: var(--bg-color);
+}
+
+.logo{
+    font-size: 2.5rem;
+    color: var(--text-color);
+    font-weight: 700;
+    cursor: default;
+}
+
+.navbar a{
+    font-size: 1.5rem;
+    color: var(--text-color);
+    font-weight: 700;
+    margin-left: 4rem;
+}
+
+
+.navbar a:hover,.navbar a:active{
+    color: var(--text-color);
+}
+
+#menu-icon{
+    font-size: 3.6rem;
+    color: var(--text-color);
+    display: none;
+    margin-left: 2rem;
+}
+
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-content h3{
+    font-size: 3.2rem;
+    font-weight: 700;
+    color:var(--text-color);
+}
+
+
+.home-content h3:nth-of-type(2){
+    margin-bottom: 2rem;
+
+}
+
+span{
+    color: var(--main-color);
+}
+
+
+.home-content h1{
+    font-size: 5.6rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.home-img img {
+    width: 25vw;  /* Sets the image width to 25% of the viewport width, making it responsive */
+    
+    animation: floatImage 2s ease-in-out infinite;  
+    /* 
+       - Applies an animation named "floatImage" (must be defined separately)
+       - Duration: 4 seconds per cycle
+       - ease-in-out: Starts slow, speeds up in the middle, and slows down at the end
+       - infinite: The animation repeats forever
+    */
+}
+
+@keyframes floatImage{
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-2.4rem);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+
+.home-content p{
+    font-size: 1.6rem;
+}
+
+.social-media a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: .2rem solid var(--main-color);
+    background: transparent;
+    color: var(--main-color);
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    font-size: 2rem;
+    margin: 3rem 1.5rem 3rem 0;
+    transition: 0.5s ease;
+}
+
+.social-media a:hover{
+    background: var(--main-color);
+    color: var(--snd-bg-color);
+    box-shadow: 0 0 1rem var(--main-color);
+}
+
+.btn{
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background: var(--main-color);
+    color: var(--bg-color);
+    font-size: 1.6rem;
+    border-radius: 4rem;
+    letter-spacing: .1rem;
+    box-shadow: 0 0 1rem var(--main-color);
+    transition: 0.5s ease;
+    font-weight: 600;
+}
+
+.btn:hover{
+    box-shadow: none;
+}
+
+
+/*About Section*/
+
+.about{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    background: var(--snd-bg-color);
+}
+
+.about-img img{
+    width: 35vw;
+}
+
+.heading{
+    text-align: center;
+    font-size: 4.5rem;
+}
+
+.about-content h2{
+    text-align: left;
+    line-height: 1.2;
+}
+
+.about-content h3{
+    font-size: 2.6rem;
+}
+
+.about-content p{
+    font-size: 1.6rem;
+    margin: 1.5rem 0 3rem;
+
+}
+
+.service h2{
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.service-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 2rem;
+}
+
+.service-container .service-box{
+    flex: 1 1 30rem;
+    max-width: 30rem;
+    background: var(--snd-bg-color);
+    border: .2rem solid var(--bg-color);
+    border-radius: 2rem;
+    padding: 3rem 2rem 4rem;
+    text-align: center;
+    transition: 0.5s ease;
+}
+
+.service-container .service-box:hover{
+    border-color: var(--main-color);
+    transform: scale(1.02);
+}
+
+.service-box i{
+    font-size: 7rem;
+}
+
+.service-box h3{
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.service-box p{
+    font-size: 1.2rem;
+    margin: 2rem 0 3rem;
+}
+
+
+
+.contact h2{
+    margin-bottom: 3rem;
+    margin-top: 6rem;
+}
+
+.contact form{
+    max-width: 70rem;
+    margin: 1rem auto;
+    text-align: center;
+
+}
+
+.contact form .input-box{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contact form .input-box input,
+.contact form textarea{
+    width: 96%;
+    color: var(--text-color);
+    background: var(--snd-bg-color);
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    margin: 2rem 1.5rem;
+    border-radius: 0.8rem;
+
+}
+
+.contact form .input-box input{
+    width: 45%;
+    
+}
+
+.contact form textarea{
+    resize: none;
+}
+
+.contact form input .btn{
+    cursor: pointer;
+    margin-top: 2rem;
+}
+
+
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 9%;
+    background: var(--snd-bg-color);
+
+}
+
+
+
+.footer-icon{
+   
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    transition: 0.5s ease;
+    border-radius: 0.8rem;
+    color:#191f36;
+    background:
+   
+}
+
+.footer-icon a:hover{
+    box-shadow: 0 0 1rem var(--main-color);
+}
+
+.footer-icon a i{
+    font-size: 2.4rem;
+    color: var(--snd-bg-color);
+}
+
+
+/* Break Point*/
+
+@media (max-width:1200px){
+    html{
+        font-size: 55%;
+    }
+}
+
+@media (max-width:991px){
+    .header{
+        padding: 2rem 3%;
+    }
+
+    section{
+        padding: 10rem 3%;
+    }
+
+    .services{
+        padding: 7rem ;
+    }
+
+    .portfolio{
+        padding: 7rem;
+    }
+
+    .contact{
+        min-height: auto;
+    }
+
+    .footer{
+        padding: 2rem 3%;
+    }
+}
+
+
+
+@media (max-width:760px){
+    #menu-icon{
+        display: block;
+    }
+
+    .navbar{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 3%;
+        background:var(--bg-color);
+        border-top: .1rem solid rgba(0,0,0,0.2);
+        box-shadow: 0.5rem  1rem rgba(0,0,0,0.2);
+        display: none;
+    }
+
+    .navbar.active{
+        display: block;
+    }
+
+    .navbar a{
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+    }
+
+    .home{
+        flex-direction: column;
+    }
+
+    .home-content {
+        order: 2;
+    }
+
+
+    .home-content h3{
+        font-size: 2.6rem;
+    }
+    .home-content h1{
+        font-size: 5rem;
+    }
+    .home-img img{
+        width: 70vw;
+        margin-top: 4rem;
+
+    }
+    .about{
+        flex-direction: column;
+
+    }
+    .about-img img{
+        width:90vw;
+        margin-top: 4rem;
+    }
+
+    .service h2{
+        margin-bottom: 3rem;
+    }
+    .portfolio h2{
+        margin-bottom: 3rem;
+    }
+    .portfolio-container {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+
+@media (max-width:617px){
+    .portfolio-container{
+        grid-template-columns: 1fr;
+    }
+
+    .home-img img{
+        width: 80vw;
+        margin-top: 8rem;
+    }
+
+    .about-img img{
+        width: 100vw;
+        margin-top: 4rem;
+    }
+}
+
+
+@media (max-width:450px){
+    html{
+        font-size: 50%;
+    }
+    .contact form .input-box input{
+        width: 100%;
+    }
+}
+
+
+ #check{
+    background-color: red;
+    color:white;
+    margin-left: 100px;
+    padding: 20px,20px,20px,20px;
+    border: 3px;
+    border-radius: 10%;
+    height: 40px;
+    width: 100px;
+}
+
+.home{
+  background-image: url('/static/images/background2.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+.about-content{
+    width: 50%;
+
+}
+
+.service-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.service-container .service-box{
+    flex: 1 1 30rem;
+    max-width: 30rem;
+    background: var(--snd-bg-color);
+    border: .2rem solid var(--bg-color);
+    border-radius: 2rem;
+    padding: 3rem 2rem 4rem;
+    text-align: center;
+    transition: 0.5s ease;
+    background-color:#1E2A4A;
+    box-shadow:2px 2px 10px white;
+}
+
+.service-container .service-box:hover{
+    border-color: var(--main-color);
+    transform: scale(1.02);
+}
+
+.service-box i{
+    font-size: 7rem;
+}
+
+.service-box h3{
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.service-box p{
+    font-size: 1.2rem;
+    margin: 2rem 0 3rem;
+}
+
+#predict .form-box {
+      background-color: white;
+      color: black;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: auto;
+      opacity: 0.95;
+      text-align: center;
+      margin-top: 10px;
+    }
+    #predict input[type="text"], #predict input[type="submit"] {
+      width: 80%;
+      padding: 10px;
+      margin: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    #predict input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+      border: none;
+    }
+    #predict input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    #predictHeading{
+        margin-top: 10%;
+        margin-bottom: 10px;
+    }
+
+    #scrollTopBtn{
+        color:#191f36;
+    }
+
+
+</style>
+
+
+
+</head>
+
+
+<body>
+<!--Header Section-->
+    <header class="header">
+        <a href="#" class="logo" >AnemiaSense</a>
+        <i class="fa-solid fa-bars" id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#predict">Predict</a>
+            <a href="#contact">Contact</a>
+            <a href="#predict" id="check" class="butn" style="cursor: pointer;">Check</a>
+
+        </nav>
+
+    </header>
+<!-- Home Section -->
+<section class="home" id="home">
+    <div class="home-content">  
+        <h3>Anemia Predictor</h3>
+        <h1>YOUR HEALTH GUARDIAN</h1>
+        <h3>Empowering you with <span>early detection</span> for better management and healthier living</h3>
+        
+</div>
+</section>
+
+
+
+<!-- About Section -->
+    <section class="about" id="about">
+    <div class="about-content">
+        <h2 class="heading">About <span>Us</span></h2>
+        <p><strong>Anemia</strong> is a condition where your body doesn't have enough healthy red blood cells or hemoglobin. Hemoglobin is the part of red blood cells that carries oxygen. When you’re anemic, your body doesn't get the oxygen it needs to function properly, which can make you feel tired or weak.</p>
+
+        <p class="extra-content" style="display: none;"><strong>AnemiaSense</strong> is an AI-based health project that helps in the early detection of anemic diseases by analyzing key blood parameters like Hemoglobin, MCH, MCV, and MCHC. By using machine learning, it gives quick, reliable predictions, so you can take timely action and get the care you need — before symptoms get worse. </p> 
+                 </p>
+        <a href="#" class="btn" id="read-more-btn">Read More</a>
+        
+    </div>
+<!-- Service Section-->
+
+        <div class="service-container">
+            <div class="service-box">
+                <i class="fa-solid fa-code"></i>
+                <h3>Hemoglobin</h3>
+                <p>
+                A protein in red blood cells that carries oxygen throughout the body; low levels can indicate anemia. </p>
+                <a href="https://en.wikipedia.org/wiki/Hemoglobin" class="btn">Read More</a>
+                
+            </div>
+
+
+            <div class="service-box">
+                <i class="fa-solid fa-lightbulb"></i>
+                <h3>MCH (Mean Corpuscular Hemoglobin)</h3>
+                <p> Indicates the average amount of hemoglobin in each red blood cell.
+                    </p>
+                <a href="https://en.wikipedia.org/wiki/Mean_corpuscular_hemoglobin" class="btn">Read More</a>
+            </div> 
+
+            <div class="service-box">
+                <i class="fa-solid fa-link"></i>
+                <h3>MCV (Mean Corpuscular Volume)</h3>
+                <p>Measures the average size of red blood cells; helps determine the type of anemia.</p>
+                <a href="https://en.wikipedia.org/wiki/Mean_corpuscular_volume" class="btn">Read More</a>
+            </div>
+
+            <div class="service-box">
+                <i class="fa-solid fa-lightbulb"></i>
+                <h3>MCHC (Mean Corpuscular Hemoglobin Concentration)</h3>
+                <p>Shows the concentration of hemoglobin in red blood cells; low values may suggest iron deficiency.</p>
+                <a href="https://en.wikipedia.org/wiki/Mean_corpuscular_hemoglobin_concentration" class="btn">Read More</a>
+            </div>
+        </div>
+    </section>   
+
+<!-- Predict-->
+<section id="predict" class="predict">
+ 
+  <h2 class="heading" id="predictHeading">Predict <span>Anemia</span></h2>
+  <div class="form-box">
+    <h2>Enter Details to Predict Anemia</h2>
+    <form action="/predict" method="post">
+      <input type="text" name="Gender" placeholder="Gender (0=Male, 1=Female)" required><br>
+      <input type="text" name="Hemoglobin" placeholder="Hemoglobin [F:12.0–15.5 g/dL, M:13.5–17.5 g/dL]" required><br>
+      <input type="text" name="MCH" placeholder="MCH [Normal range: 27 – 33 picograms (pg)]" required><br>
+      <input type="text" name="MCHC" placeholder="MCHC [Normal range: 32 – 36 g/dL]" required><br>
+      <input type="text" name="MCV" placeholder="MCV [Normal range: 80 – 100 femtoliters (fL)]" required><br>
+      <input type="submit" value="Predict">
+    </form>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact" id="contact">
+    <h2 class="heading">Contact <span>Me</span></h2>
+
+    <form action="https://formspree.io/f/mnnvblyl" method="POST">
+        <div class="input-box">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Enter Email Address" required>
+        </div>
+
+        <div class="input-box">
+            <input type="tel" name="phone" placeholder="Mobile Number">
+            <input type="text" name="subject" placeholder="Email Subject">
+        </div>
+
+        <textarea name="message" cols="30" rows="10" placeholder="Enter Your Message" required></textarea>
+        <input type="submit" value="Submit" class="btn">
+    </form>
+</section>
+
+
+    <!-- Footer Section--> 
+    <footer class="footer">
+        <div class="footer-icon">
+            <a href="#home"><i class="fa-solid fa-angle-up"></i></a>
+            <!-- <button onclick="topFunction()" id="scrollTopBtn" title="Go to top">↑</button> -->
+            <!-- <button onclick="topFunction()" id="scrollTopBtn" title="Go to top"><span style='font-size:30px;'>&#8679;</span></button> -->
+             <button onclick="topFunction()" id="scrollTopBtn" title="Go to top" style="background-color:#191f36; color:  rgb(248, 224, 128); border: 1px ; padding: 10px; border-radius: 10px; box-shadow: 0 0 1rem var(--main-color);">
+    <span style="font-size:30px;">&#8679;</span>
+</button>
+
+        </div>
+    </footer> 
+
+ 
+
+
+
+    <script>
+        let menuIcon=document.querySelector("#menu-icon");
+let navbar=document.querySelector(".navbar");
+
+menuIcon.onclick=()=>{
+    menuIcon.classList.toggle("fa-xmark");
+    navbar.classList.toggle("active");
+}
+
+
+//ACTIVE NAV LINK
+
+let sections=document.querySelectorAll("section");
+let navLinks=document.querySelectorAll("header nav a");
+
+window.onscroll=()=>{
+    sections.forEach(sec=>{
+        let top=window.scrollY;
+        let offset=sec.offsetTop-150;
+        let height=sec.offsetHeight;
+        let id=sec.getAttribute("id");
+
+        if(top>=offset && top<offset + height){
+            navLinks.forEach.apply(links=>{
+                links.classList.remove('active');
+
+                document.querySelector('header nav a[href*='+id+']').classList.add('active');
+
+            });
+        };
+
+    });
+
+    //Sticky Navbar
+
+    let header=document.querySelector('header');
+    header.classList.toggle('sticky',window.scrollY>100);
+
+    //Remove toggle icon and navbar
+    menuIcon.classList.remove('fa-xmark');
+    navbar.classList.remove("active");
+}
+
+document.getElementById("read-more-btn").addEventListener("click", function(event) {
+    event.preventDefault(); // Prevent the default action of the link
+    var extraContent = document.querySelector(".extra-content");
+    
+    // Toggle the visibility of the extra content
+    if (extraContent.style.display === "none") {
+        extraContent.style.display = "block"; // Show the hidden content
+        this.textContent = "Read Less"; // Change button text to "Read Less"
+    } else {
+        extraContent.style.display = "none"; // Hide the content again
+        this.textContent = "Read More"; // Change button text back to "Read More"
+    }
+});
+
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+}
+
+
+
+    </script>
+</body>
+</html>
