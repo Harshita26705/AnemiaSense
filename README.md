@@ -6,8 +6,11 @@
 👉 [Try AnemiaSense](https://anemiasense-b5jm.onrender.com/)
 
 ## 📂 Outputs  
-📁 Outputs are too large for GitHub, but you can view/download them here:  
+📂 Due to GitHub file size limits, outputs are hosted externally: 
 👉 [View on Google Drive](https://drive.google.com/file/d/15sg-6yhN2fw3wfy57o--8pUTWaEmYSs6/view?usp=sharing)
+
+## 🎥 Project Demo Recording  
+📺 [Watch the walkthrough demo on Google Drive](https://drive.google.com/file/d/1n9x1zTh3K_9CFkAXUd-TlSc6VIKoAh-1/view?usp=sharing)
 
 ---
 
@@ -29,13 +32,6 @@
 - **Render** (Deployment)  
 - **Google Drive** (File Storage)
 
----
-
-## 📂 Outputs
-
-Due to GitHub file size limits, outputs are hosted externally:
-
-📎 [Download AnemiaSense Output Files](https://drive.google.com/file/d/15sg-6yhN2fw3wfy57o--8pUTWaEmYSs6/view?usp=sharing)
 
 ---
 
@@ -64,3 +60,4 @@ If you find this project helpful, please consider:
 - 🤝 **Contributing** with ideas or code
 
 Together, we can make **health tech smarter** and more **inclusive**!
+
